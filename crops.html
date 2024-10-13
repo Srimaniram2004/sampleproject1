@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crops Display</title>
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  img {
+    max-width: 100px;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+
+<h1>List of Crops</h1>
+
+<p>Select a crop:</p>
+<select id="cropSelect">
+  <option value="wheat">Wheat</option>
+  <option value="rice">Rice</option>
+  <option value="maize">Maize</option>
+  <!-- Add more crops here as needed -->
+</select>
+
+<button onclick="viewCrop()">View Crop</button>
+
+<div id="cropDetails"></div>
+
+<div id="replyForm" style="display: none;">
+  <h2>Reply to Dealer</h2>
+  <form onsubmit="replyToDealer(event)">
+    <textarea id="replyMessage" rows="4" cols="50" placeholder="Enter your message here..."></textarea><br>
+    <button type="submit">Send Reply</button>
+  </form>
+</div>
+
+<script>
+function viewCrop() {
+  var selectedCrop = document.getElementById("cropSelect").value;
+  var cropDetails = document.getElementById("cropDetails");
+  
+  switch (selectedCrop) {
+    case "wheat":
+      cropDetails.innerHTML = `
+        <h2>Wheat</h2>
+        <img src="wheat.jpg" alt="Wheat">
+        <p>Description: Wheat is a cereal grain</p>
+        <p>Season: Winter</p>
+      `;
+      break;
+    case "rice":
+      cropDetails.innerHTML = `
+        <h2>Rice</h2>
+        <img src="rice.jpg" alt="Rice">
+        <p>Description: Rice is a staple food</p>
+        <p>Season: Summer</p>
+      `;
+      break;
+    case "maize":
+      cropDetails.innerHTML = `
+        <h2>Maize</h2>
+        <img src="maize.jpg" alt="Maize">
+        <p>Description: Maize is a cereal grain</p>
+        <p>Season: Summer</p>
+      `;
+      break;
+    // Add cases for more crops here as needed
+    default:
+      cropDetails.innerHTML = "<p>Please select a crop</p>";
+  }
+  
+  document.getElementById("replyForm").style.display = "block";
+}
+
+function replyToDealer(event) {
+  event.preventDefault();
+  var replyMessage = document.getElementById("replyMessage").value;
+  // Here you can do something with the reply message, such as sending it to the dealer or processing it further.
+  alert("Reply sent to the dealer: " + replyMessage);
+}
+</script>
+
+</body>
+</html>

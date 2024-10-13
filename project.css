@@ -1,0 +1,18 @@
+header{
+    text-align:center;
+    font-size:18;
+    background-color:green;
+    padding:10px;
+
+}
+footer{
+    text-align:center;
+    font-size:16;
+    background-color:green;
+    padding:10px;
+}
+img{
+    
+    width:300px;
+    height:300px;
+}
